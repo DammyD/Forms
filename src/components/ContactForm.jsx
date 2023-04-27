@@ -38,7 +38,6 @@ const ContactForm = () => {
         event.preventDefault();
         setErrorMessage(validate(form));
         setIsSubmit(true);
-        event.target.reset();
         
           // Post data to API
           axios.post(`https://my-json-server.typicode.com/tundeojediran/contacts-api-server/inquiries`, {form})
