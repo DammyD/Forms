@@ -43,12 +43,18 @@ form select {
   outline: none;
 }
 
+form input, 
+form textarea {
+  width: 91.5%;
+}
+
+
 form label {
   font-size: 14px;
   color: gray;
 }
 
-form span {
+form span, .error {
   font-size: 12px;
   padding: 5px;
   color: red;
