@@ -41,17 +41,22 @@ const ContactForm = () => {
     setStatus("Submitting");
 
     // Post data to API
-    axios
-      .post(
-        `https://my-json-server.typicode.com/tundeojediran/contacts-api-server/inquiries`,
-        { form }
-      )
-      .then((response) => {
-        console.log(response);
-        setStatus("Submitted");
-      })
-      .catch((error) => console.log(error));
-      setForm(INITIAL_VALUES);
+    const valid = validate(form);
+    if (Object.keys(valid).length === 0) {
+      axios
+        .post(
+          `https://my-json-server.typicode.com/tundeojediran/contacts-api-server/inquiries`,
+          { form }
+        )
+        .then((response) => {
+          console.log(response);
+          setStatus("Submitted");
+        })
+        .catch((error) => console.log(error));
+    } else {
+      setStatus('');
+    }
+    setForm(INITIAL_VALUES);
   };
 
   return (
